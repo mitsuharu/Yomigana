@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9B18FCFC22CCBB84001CA9A0 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B18FCFB22CCBB83001CA9A0 /* Sentence.swift */; };
 		9B18FCFE22CCC84B001CA9A0 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B18FCFD22CCC84B001CA9A0 /* ErrorType.swift */; };
+		9B18FD0222CCD515001CA9A0 /* SentenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B18FD0022CCD515001CA9A0 /* SentenceCell.swift */; };
+		9B18FD0322CCD515001CA9A0 /* SentenceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B18FD0122CCD515001CA9A0 /* SentenceCell.xib */; };
+		9B18FD0522CCD86D001CA9A0 /* ViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B18FD0422CCD86D001CA9A0 /* ViewController+TableView.swift */; };
+		9B18FD0722CCDDDC001CA9A0 /* MEOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B18FD0622CCDDDC001CA9A0 /* MEOKit.framework */; };
 		9B273C4722CC8E2B00A024FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B273C4622CC8E2B00A024FA /* AppDelegate.swift */; };
 		9B273C4922CC8E2B00A024FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B273C4822CC8E2B00A024FA /* ViewController.swift */; };
 		9B273C4C22CC8E2B00A024FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B273C4A22CC8E2B00A024FA /* Main.storyboard */; };
@@ -42,6 +46,10 @@
 /* Begin PBXFileReference section */
 		9B18FCFB22CCBB83001CA9A0 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		9B18FCFD22CCC84B001CA9A0 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
+		9B18FD0022CCD515001CA9A0 /* SentenceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceCell.swift; sourceTree = "<group>"; };
+		9B18FD0122CCD515001CA9A0 /* SentenceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SentenceCell.xib; sourceTree = "<group>"; };
+		9B18FD0422CCD86D001CA9A0 /* ViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+TableView.swift"; sourceTree = "<group>"; };
+		9B18FD0622CCDDDC001CA9A0 /* MEOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MEOKit.framework; path = Carthage/Build/iOS/MEOKit.framework; sourceTree = "<group>"; };
 		9B273C4322CC8E2B00A024FA /* Yomigana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yomigana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B273C4622CC8E2B00A024FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B273C4822CC8E2B00A024FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B18FD0722CCDDDC001CA9A0 /* MEOKit.framework in Frameworks */,
 				9B273C7822CC8FFF00A024FA /* SwiftyJSON.framework in Frameworks */,
 				9B273C7922CC8FFF00A024FA /* Alamofire.framework in Frameworks */,
 				9B273C7A22CC8FFF00A024FA /* SVProgressHUD.framework in Frameworks */,
@@ -98,6 +107,15 @@
 			path = api;
 			sourceTree = "<group>";
 		};
+		9B18FCFF22CCD4FA001CA9A0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				9B18FD0022CCD515001CA9A0 /* SentenceCell.swift */,
+				9B18FD0122CCD515001CA9A0 /* SentenceCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		9B273C3A22CC8E2B00A024FA = {
 			isa = PBXGroup;
 			children = (
@@ -122,14 +140,16 @@
 		9B273C4522CC8E2B00A024FA /* Yomigana */ = {
 			isa = PBXGroup;
 			children = (
-				9B18FCF822CCB588001CA9A0 /* api */,
-				9B273C4622CC8E2B00A024FA /* AppDelegate.swift */,
-				9B273C4822CC8E2B00A024FA /* ViewController.swift */,
-				9B273C4A22CC8E2B00A024FA /* Main.storyboard */,
-				9B273C4D22CC8E2C00A024FA /* Assets.xcassets */,
-				9B273C4F22CC8E2C00A024FA /* LaunchScreen.storyboard */,
 				9B273C5222CC8E2C00A024FA /* Info.plist */,
+				9B273C4622CC8E2B00A024FA /* AppDelegate.swift */,
 				9B273C7C22CC913900A024FA /* Constants.swift */,
+				9B273C4822CC8E2B00A024FA /* ViewController.swift */,
+				9B18FD0422CCD86D001CA9A0 /* ViewController+TableView.swift */,
+				9B273C4D22CC8E2C00A024FA /* Assets.xcassets */,
+				9B18FCF822CCB588001CA9A0 /* api */,
+				9B273C4F22CC8E2C00A024FA /* LaunchScreen.storyboard */,
+				9B273C4A22CC8E2B00A024FA /* Main.storyboard */,
+				9B18FCFF22CCD4FA001CA9A0 /* view */,
 			);
 			path = Yomigana;
 			sourceTree = "<group>";
@@ -155,6 +175,7 @@
 		9B273C7422CC8FFE00A024FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B18FD0622CCDDDC001CA9A0 /* MEOKit.framework */,
 				9B273C7622CC8FFF00A024FA /* Alamofire.framework */,
 				9B273C7722CC8FFF00A024FA /* SVProgressHUD.framework */,
 				9B273C7522CC8FFF00A024FA /* SwiftyJSON.framework */,
@@ -269,6 +290,7 @@
 			files = (
 				9B273C5122CC8E2C00A024FA /* LaunchScreen.storyboard in Resources */,
 				9B273C4E22CC8E2C00A024FA /* Assets.xcassets in Resources */,
+				9B18FD0322CCD515001CA9A0 /* SentenceCell.xib in Resources */,
 				9B273C4C22CC8E2B00A024FA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +323,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MEOKit.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -319,8 +342,10 @@
 			files = (
 				9B273C4922CC8E2B00A024FA /* ViewController.swift in Sources */,
 				9B18FCFE22CCC84B001CA9A0 /* ErrorType.swift in Sources */,
+				9B18FD0522CCD86D001CA9A0 /* ViewController+TableView.swift in Sources */,
 				9B18FCFC22CCBB84001CA9A0 /* Sentence.swift in Sources */,
 				9B273C4722CC8E2B00A024FA /* AppDelegate.swift in Sources */,
+				9B18FD0222CCD515001CA9A0 /* SentenceCell.swift in Sources */,
 				9B273C7D22CC913900A024FA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,13 @@ import UIKit
 
 class Constants: NSObject {
     
+    class Main: NSObject{
+        static let title = "読み仮名に変換します"
+    }
+    
     class Alert: NSObject{
+        static let title = "エラー"
+        static let ok = "OK"
         static let validation = "入力に誤りがあります"
         static let failed = "読み仮名の取得に失敗しました"
         static let network = "ネットワークに接続できません"

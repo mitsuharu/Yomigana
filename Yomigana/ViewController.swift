@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let sentence = Sentence("天気です")
+        sentence.toHiragana { (result, errorType) in
+            if let errorType = errorType{
+                print(errorType.description)
+            }
+            if result == true, let str = sentence.converted{
+                print("converted:", str)
+            }
+        }
     }
 
 

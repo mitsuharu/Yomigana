@@ -14,8 +14,8 @@ import SwiftyJSON
 class Sentence: NSObject {
     var text: String? = nil
     var converted: String? = nil
-    var uuid = NSUUID().uuidString
-    var createdAt: Date = Date()
+    let uuid = NSUUID().uuidString
+    let createdAt: Date = Date()
     var updatedAt: Date = Date()
     
     init(_ text:String? = nil) {

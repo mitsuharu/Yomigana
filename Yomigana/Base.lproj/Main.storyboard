@@ -38,10 +38,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MW-ir-Crl">
-                                        <rect key="frame" x="8" y="8" width="398" height="132"/>
+                                        <rect key="frame" x="8" y="8" width="398" height="124"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Obt-US-hDZ">
-                                                <rect key="frame" x="8" y="8" width="382" height="116"/>
+                                                <rect key="frame" x="8" y="8" width="382" height="108"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -68,7 +68,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJ9-e7-M8i">
-                                        <rect key="frame" x="20" y="148" width="374" height="44"/>
+                                        <rect key="frame" x="20" y="140" width="374" height="44"/>
                                         <color key="backgroundColor" red="0.8444869476304927" green="0.82765156030654907" blue="0.82765156030654907" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="fih-Iy-gQw"/>
@@ -84,7 +84,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="7MW-ir-Crl" firstAttribute="leading" secondItem="OXA-9p-eWm" secondAttribute="leading" constant="8" id="LmE-yo-Ncc"/>
-                                    <constraint firstAttribute="bottom" secondItem="pJ9-e7-M8i" secondAttribute="bottom" constant="8" id="XoY-gc-Q1K"/>
+                                    <constraint firstAttribute="bottom" secondItem="pJ9-e7-M8i" secondAttribute="bottom" constant="16" id="XoY-gc-Q1K"/>
                                     <constraint firstItem="pJ9-e7-M8i" firstAttribute="leading" secondItem="OXA-9p-eWm" secondAttribute="leading" constant="20" id="ZtX-am-uun"/>
                                     <constraint firstAttribute="height" constant="200" id="cJp-9L-QwM"/>
                                     <constraint firstAttribute="trailing" secondItem="7MW-ir-Crl" secondAttribute="trailing" constant="8" id="eB0-Bo-6Cu"/>

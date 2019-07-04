@@ -31,6 +31,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SentenceCell",
                                                  for: indexPath)
+        cell.separatorInset = UIEdgeInsets.zero
         
         if
             let scell: SentenceCell = cell as? SentenceCell,
@@ -43,6 +44,28 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard
+            let sentence = self.sentences[safe: indexPath.row],
+            let text = sentence.converted
+        else {
+            return
+        }
+        
+        let vc = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        vc.excludedActivityTypes = [
+            .postToVimeo,
+            .postToWeibo,
+            .postToFlickr,
+            .saveToCameraRoll,
+            .print,
+        ]
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+
     
 }
 

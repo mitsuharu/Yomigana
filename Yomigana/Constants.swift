@@ -10,8 +10,9 @@ import UIKit
 
 class Constants: NSObject {
     
-    class Main: NSObject{
+    class App: NSObject{
         static let title = "読み仮名に変換します"
+        static let setting = "設定"
     }
     
     class Alert: NSObject{

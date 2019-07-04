@@ -28,7 +28,11 @@ class SentenceCell: UITableViewCell {
     }
     
     func setContents(){
-        self.dateLabel.text = sentence.updatedAt.description
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+        
+        self.dateLabel.text = dateFormatter.string(from: sentence.updatedAt)
         self.rawLabel.text = sentence.text
         self.yomiLabel.text = sentence.converted
     }

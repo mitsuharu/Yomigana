@@ -46,7 +46,7 @@ extension ViewController{
         self.roundView.layer.cornerRadius = 5
         self.roundView.layer.masksToBounds = true
         
-        let size = CGSize(width: 10, height: 10)
+        let size = CGSize(width: 1, height: 1)
         let nImage = UIImage(squareOf: UIColor(hexCode: "dddddd"),
                                   size: size)
         let hImage = UIImage(squareOf: UIColor(hexCode: "aaaaaa"),

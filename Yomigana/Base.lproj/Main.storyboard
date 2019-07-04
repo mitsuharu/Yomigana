@@ -81,7 +81,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="7MW-ir-Crl" firstAttribute="leading" secondItem="OXA-9p-eWm" secondAttribute="leading" constant="8" id="LmE-yo-Ncc"/>
                                     <constraint firstAttribute="bottom" secondItem="pJ9-e7-M8i" secondAttribute="bottom" constant="8" id="XoY-gc-Q1K"/>
@@ -95,10 +95,10 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tVf-zi-6tR">
                                 <rect key="frame" x="0.0" y="288" width="414" height="608"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="OXA-9p-eWm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4rg-UA-dpf"/>
                             <constraint firstItem="tVf-zi-6tR" firstAttribute="top" secondItem="OXA-9p-eWm" secondAttribute="bottom" id="76O-iB-3Bi"/>

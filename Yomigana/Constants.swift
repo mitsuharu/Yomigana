@@ -15,6 +15,12 @@ class Constants: NSObject {
         static let setting = "設定"
     }
     
+    class Setting: NSObject{
+        static let function = "機能"
+        static let license = "ライセンス"
+        static let convertedWithEnterKey = "エンターキーでも変換する"
+    }
+    
     class Alert: NSObject{
         static let title = "エラー"
         static let ok = "OK"

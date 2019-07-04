@@ -164,17 +164,17 @@
 		9B273C4522CC8E2B00A024FA /* Yomigana */ = {
 			isa = PBXGroup;
 			children = (
+				9B18FCFF22CCD4FA001CA9A0 /* view */,
 				9B18FD0822CE0826001CA9A0 /* setting */,
-				9B273C5222CC8E2C00A024FA /* Info.plist */,
-				9B273C4622CC8E2B00A024FA /* AppDelegate.swift */,
-				9B273C7C22CC913900A024FA /* Constants.swift */,
-				9B273C4822CC8E2B00A024FA /* ViewController.swift */,
-				9B18FD0422CCD86D001CA9A0 /* ViewController+TableView.swift */,
-				9B273C4D22CC8E2C00A024FA /* Assets.xcassets */,
 				9B18FCF822CCB588001CA9A0 /* api */,
+				9B273C4622CC8E2B00A024FA /* AppDelegate.swift */,
+				9B273C4D22CC8E2C00A024FA /* Assets.xcassets */,
+				9B273C7C22CC913900A024FA /* Constants.swift */,
+				9B273C5222CC8E2C00A024FA /* Info.plist */,
 				9B273C4F22CC8E2C00A024FA /* LaunchScreen.storyboard */,
 				9B273C4A22CC8E2B00A024FA /* Main.storyboard */,
-				9B18FCFF22CCD4FA001CA9A0 /* view */,
+				9B273C4822CC8E2B00A024FA /* ViewController.swift */,
+				9B18FD0422CCD86D001CA9A0 /* ViewController+TableView.swift */,
 			);
 			path = Yomigana;
 			sourceTree = "<group>";

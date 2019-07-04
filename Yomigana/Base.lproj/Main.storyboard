@@ -38,10 +38,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MW-ir-Crl">
-                                        <rect key="frame" x="8" y="8" width="398" height="130"/>
+                                        <rect key="frame" x="8" y="8" width="398" height="132"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Obt-US-hDZ">
-                                                <rect key="frame" x="8" y="8" width="382" height="114"/>
+                                                <rect key="frame" x="8" y="8" width="382" height="116"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -68,7 +68,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJ9-e7-M8i">
-                                        <rect key="frame" x="20" y="146" width="374" height="44"/>
+                                        <rect key="frame" x="20" y="148" width="374" height="44"/>
                                         <color key="backgroundColor" red="0.8444869476304927" green="0.82765156030654907" blue="0.82765156030654907" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="fih-Iy-gQw"/>
@@ -81,10 +81,10 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="7MW-ir-Crl" firstAttribute="leading" secondItem="OXA-9p-eWm" secondAttribute="leading" constant="8" id="LmE-yo-Ncc"/>
-                                    <constraint firstAttribute="bottom" secondItem="pJ9-e7-M8i" secondAttribute="bottom" constant="10" id="XoY-gc-Q1K"/>
+                                    <constraint firstAttribute="bottom" secondItem="pJ9-e7-M8i" secondAttribute="bottom" constant="8" id="XoY-gc-Q1K"/>
                                     <constraint firstItem="pJ9-e7-M8i" firstAttribute="leading" secondItem="OXA-9p-eWm" secondAttribute="leading" constant="20" id="ZtX-am-uun"/>
                                     <constraint firstAttribute="height" constant="200" id="cJp-9L-QwM"/>
                                     <constraint firstAttribute="trailing" secondItem="7MW-ir-Crl" secondAttribute="trailing" constant="8" id="eB0-Bo-6Cu"/>
@@ -95,10 +95,10 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tVf-zi-6tR">
                                 <rect key="frame" x="0.0" y="288" width="414" height="608"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="OXA-9p-eWm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4rg-UA-dpf"/>
                             <constraint firstItem="tVf-zi-6tR" firstAttribute="top" secondItem="OXA-9p-eWm" secondAttribute="bottom" id="76O-iB-3Bi"/>

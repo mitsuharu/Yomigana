@@ -54,7 +54,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
             return
         }
         
-        let vc = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        let vc = UIActivityViewController(activityItems: [text],
+                                          applicationActivities: nil)
         vc.excludedActivityTypes = [
             .postToVimeo,
             .postToWeibo,

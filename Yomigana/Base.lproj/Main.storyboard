@@ -47,9 +47,8 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="何か入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lr-8C-bDI">
-                                                <rect key="frame" x="8" y="12" width="174" height="21"/>
+                                                <rect key="frame" x="8" y="12" width="173.5" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="174" id="ChY-6g-Jcb"/>
                                                     <constraint firstAttribute="height" constant="21" id="has-eG-ZMH"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -60,6 +59,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Obt-US-hDZ" firstAttribute="top" secondItem="7MW-ir-Crl" secondAttribute="top" constant="8" id="6ID-cZ-StU"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1lr-8C-bDI" secondAttribute="trailing" constant="20" symbolic="YES" id="MKC-GV-DtH"/>
                                             <constraint firstAttribute="bottom" secondItem="Obt-US-hDZ" secondAttribute="bottom" constant="8" id="Skc-bc-qxR"/>
                                             <constraint firstItem="Obt-US-hDZ" firstAttribute="leading" secondItem="7MW-ir-Crl" secondAttribute="leading" constant="8" id="b86-9D-a65"/>
                                             <constraint firstAttribute="trailing" secondItem="Obt-US-hDZ" secondAttribute="trailing" constant="8" id="kXQ-i3-rRD"/>
@@ -112,7 +112,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="uhE-Rp-6cO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cnvButton" destination="pJ9-e7-M8i" id="yrK-LH-Ngt"/>
                         <outlet property="headerView" destination="OXA-9p-eWm" id="SGP-jD-YQi"/>

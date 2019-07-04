@@ -38,6 +38,9 @@ extension ViewController{
     
     func setup(){
         
+        SVProgressHUD.setDefaultStyle(.dark)
+        
+        
         self.roundView.layer.cornerRadius = 5
         self.roundView.layer.masksToBounds = true
         
@@ -69,24 +72,29 @@ extension ViewController{
     
     @IBAction func didTapCnvButton(buttn: UIButton){
         self.textView.endEditing(true)
-        self.cnvButton.isUserInteractionEnabled = false
-        self.addSentence(text: self.textView.text) { (result) in
-            self.cnvButton.isUserInteractionEnabled = true
-            if result{
-                self.textView.text = nil
-                self.placeholderLabel.isHidden = false
-            }
+        self.addSentence(text: self.textView.text) { (_) in
         }
     }
     
     func addSentence(text: String, completion:@escaping (Bool)->()){
         let sentence = Sentence(text)
+        
+        self.textView.isUserInteractionEnabled = false
+        self.cnvButton.isUserInteractionEnabled = false
         SVProgressHUD.show()
+        
         sentence.toHiragana { (result, errorType) in
+            self.textView.isUserInteractionEnabled = true
+            self.cnvButton.isUserInteractionEnabled = true
             SVProgressHUD.dismiss()
             if result{
-                self.sentences.append(sentence)
-                self.tableView.reloadData()
+                
+                self.sentences.insert(sentence, at: 0)
+                self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+
+                self.textView.text = nil
+                self.placeholderLabel.isHidden = false
+                
             }else{
                 let av = UIAlertController(title: Constants.Alert.title,
                                            message: errorType?.description,
@@ -105,7 +113,6 @@ extension ViewController: UITextViewDelegate{
     
     func setupTextView(){
         textView.text = nil
-        textView.returnKeyType = UIReturnKeyType.done
         textView.delegate = self
     }
     
@@ -128,12 +135,8 @@ extension ViewController: UITextViewDelegate{
     {
         if text == "\n"  {
             textView.endEditing(true)
-            
             if appParam.isConvertedWithEnterKey{
-                self.addSentence(text: textView.text) { (result) in
-                    if result{
-                        textView.text = nil
-                    }
+                self.addSentence(text: textView.text) { (_) in
                 }
             }
             return false

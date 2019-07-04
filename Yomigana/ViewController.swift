@@ -7,28 +7,77 @@
 //
 
 import UIKit
+import MEOKit
 import SVProgressHUD
 
 class ViewController: UIViewController {
 
+    let appParam = AppParam()
+    
     // sentence
     var sentences: [Sentence] = [Sentence]()
     
     // ui
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var roundView: UIView!
+    @IBOutlet weak var cnvButton: UIButton!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var placeholderLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = Constants.Main.title
+        self.setup()
         self.setupTextView()
         self.setupTableView()
     }
 }
 
 extension ViewController{
+    
+    func setup(){
+        
+        self.roundView.layer.cornerRadius = 5
+        self.roundView.layer.masksToBounds = true
+        
+        let size = CGSize(width: 10, height: 10)
+        let nImage = UIImage(squareOf: UIColor(hexCode: "dddddd"),
+                                  size: size)
+        let hImage = UIImage(squareOf: UIColor(hexCode: "aaaaaa"),
+                                  size: size)
+        
+        self.cnvButton.layer.cornerRadius = 5
+        self.cnvButton.layer.masksToBounds = true
+        self.cnvButton.backgroundColor = UIColor.clear
+        self.cnvButton.setBackgroundImage(nImage, for: .normal)
+        self.cnvButton.setBackgroundImage(hImage, for: .highlighted)
+        
+        self.title = Constants.App.title
+        
+        let item = UIBarButtonItem(title: Constants.App.setting,
+                                   style: UIBarButtonItem.Style.plain,
+                                   target: self,
+                                   action: #selector(pushSetting(_:)))
+        self.navigationItem.rightBarButtonItem = item
+    }
+    
+    @objc func pushSetting(_ sender: UIBarButtonItem) {
+        let vc = SettingViewController.instantiate()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func didTapCnvButton(buttn: UIButton){
+        self.textView.endEditing(true)
+        self.cnvButton.isUserInteractionEnabled = false
+        self.addSentence(text: self.textView.text) { (result) in
+            self.cnvButton.isUserInteractionEnabled = true
+            if result{
+                self.textView.text = nil
+                self.placeholderLabel.isHidden = false
+            }
+        }
+    }
     
     func addSentence(text: String, completion:@escaping (Bool)->()){
         let sentence = Sentence(text)
@@ -60,15 +109,31 @@ extension ViewController: UITextViewDelegate{
         textView.delegate = self
     }
     
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool{
+        placeholderLabel.isHidden = true
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        if textView.text.isEmpty {
+            placeholderLabel.isHidden = false
+        }
+    }
+    
+    
     func textView(_ textView: UITextView,
                   shouldChangeTextIn range: NSRange,
                   replacementText text: String) -> Bool
     {
-        if text == "\n" {
+        if text == "\n"  {
             textView.endEditing(true)
-            self.addSentence(text: textView.text) { (result) in
-                if result{
-                    textView.text = nil
+            
+            if appParam.isConvertedWithEnterKey{
+                self.addSentence(text: textView.text) { (result) in
+                    if result{
+                        textView.text = nil
+                    }
                 }
             }
             return false

@@ -10,7 +10,7 @@ import UIKit
 
 class SentenceCell: UITableViewCell {
 
-    var sentence:Sentence!
+    weak var sentence:Sentence!
     
     @IBOutlet weak var dateLabel:UILabel!
     @IBOutlet weak var rawLabel:UILabel!

@@ -10,8 +10,10 @@ import UIKit
 import MEOKit
 import SVProgressHUD
 
+/// アプリのメインです
 class ViewController: UIViewController {
 
+    // パラメータ
     let appParam = AppParam()
     
     // sentence
@@ -28,7 +30,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setup()
+        self.setupUIs()
         self.setupTextView()
         self.setupTableView()
     }
@@ -36,11 +38,11 @@ class ViewController: UIViewController {
 
 extension ViewController{
     
-    func setup(){
+    /// UI群の基本設定を行う
+    func setupUIs(){
         
         SVProgressHUD.setDefaultStyle(.dark)
-        
-        
+
         self.roundView.layer.cornerRadius = 5
         self.roundView.layer.masksToBounds = true
         
@@ -84,26 +86,28 @@ extension ViewController{
         SVProgressHUD.show()
         
         sentence.toHiragana { (result, errorType) in
-            self.textView.isUserInteractionEnabled = true
-            self.cnvButton.isUserInteractionEnabled = true
             SVProgressHUD.dismiss()
+            
             if result{
-                
                 self.sentences.insert(sentence, at: 0)
-                self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                
+                let ips = [IndexPath(row: 0, section: 0)]
+                self.tableView.insertRows(at: ips, with: .automatic)
 
                 self.textView.text = nil
                 self.placeholderLabel.isHidden = false
-                
-            }else{
+            }else if let err = errorType{
                 let av = UIAlertController(title: Constants.Alert.title,
-                                           message: errorType?.description,
+                                           message: err.description,
                                            preferredStyle: UIAlertController.Style.alert)
                 av.addAction(UIAlertAction(title: Constants.Alert.ok,
                                            style: UIAlertAction.Style.default,
                                            handler: nil))
                 self.present(av, animated: true, completion: nil)
             }
+            
+            self.textView.isUserInteractionEnabled = true
+            self.cnvButton.isUserInteractionEnabled = true
             completion(result)
         }
     }
@@ -122,12 +126,10 @@ extension ViewController: UITextViewDelegate{
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        
         if textView.text.isEmpty {
             placeholderLabel.isHidden = false
         }
     }
-    
     
     func textView(_ textView: UITextView,
                   shouldChangeTextIn range: NSRange,

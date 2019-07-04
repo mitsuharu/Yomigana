@@ -10,6 +10,7 @@ import UIKit
 import SafariServices
 import MEOKit
 
+/// 設定画面
 class SettingViewController: UIViewController {
 
     let appParam = AppParam()
@@ -21,7 +22,7 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "設定"
+        self.title = Constants.App.setting
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -69,9 +70,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0{
-            return "機能"
+            return Constants.Setting.function
         }else{
-            return "ライセンス"
+            return Constants.Setting.license
         }
     }
     
@@ -83,7 +84,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource{
         if indexPath.section == 0{
             cell.selectionStyle = .none
             if indexPath.row == 0{
-                cell.textLabel?.text = "エンターキーでも変換する"
+                cell.textLabel?.text = Constants.Setting.convertedWithEnterKey
                 cell.meo.addSwitch(isOn: appParam.isConvertedWithEnterKey) { (_, sw) in
                     self.appParam.isConvertedWithEnterKey = sw.isOn
                 }

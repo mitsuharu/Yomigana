@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     // sentence array
     var sentences: [Sentence] = [Sentence]()
     
-    // for cell
+    var isRequesting: Bool = false
     var cellHeights: [IndexPath: CGFloat] = [IndexPath: CGFloat]()
     
     // ui
@@ -76,6 +76,11 @@ extension ViewController{
     }
     
     @IBAction func didTapCnvButton(buttn: UIButton){
+        
+        if self.isRequesting{
+            return
+        }
+        
         self.textView.endEditing(true)
         self.addSentence(text: self.textView.text) { (_) in
         }
@@ -83,14 +88,13 @@ extension ViewController{
     
     /// 読み仮名に変更して結果一覧に表示する
     func addSentence(text: String, completion:@escaping (Bool)->()){
-        self.textView.isUserInteractionEnabled = false
-        self.cnvButton.isUserInteractionEnabled = false
+        
+        self.isRequesting = true
         SVProgressHUD.show()
         
         let sentence = Sentence(text)
         sentence.toHiragana { (result, errorType) in
             SVProgressHUD.dismiss()
-            
             if result{
                 self.sentences.insert(sentence, at: 0)
 
@@ -98,7 +102,12 @@ extension ViewController{
                 self.tableView.insertRows(at: ips, with: .automatic)
                 
                 self.textView.text = nil
-                self.placeholderLabel.isHidden = false
+                if self.textView.isFirstResponder && self.appParam.isConvertedWithEnterKey {
+                    self.placeholderLabel.isHidden = true
+                }else{
+                    self.placeholderLabel.isHidden = false
+                }
+                
             }else if let err = errorType{
                 let av = UIAlertController(title: Constants.Alert.title,
                                            message: err.description,
@@ -109,8 +118,7 @@ extension ViewController{
                 self.present(av, animated: true, completion: nil)
             }
             
-            self.textView.isUserInteractionEnabled = true
-            self.cnvButton.isUserInteractionEnabled = true
+            self.isRequesting = false
             completion(result)
         }
     }
@@ -121,6 +129,26 @@ extension ViewController: UITextViewDelegate{
     func setupTextView(){
         self.textView.text = nil
         self.textView.delegate = self
+        
+        let rect = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
+        let toolBar = UIToolbar(frame: rect)
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.sizeToFit()
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                     target: nil,
+                                     action: nil)
+        let closeBtn = UIBarButtonItem(title: Constants.App.closeKeyboard,
+                                       style: UIBarButtonItem.Style.plain,
+                                       target: self,
+                                       action: #selector(closeKeyboard(_ :)) )
+        toolBar.items = [spacer, closeBtn]
+        self.textView.inputAccessoryView = toolBar
+    }
+    
+    @objc func closeKeyboard(_ sender: AnyObject) {
+        if self.textView.isFirstResponder{
+            self.textView.resignFirstResponder()
+        }
     }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool{
@@ -138,6 +166,9 @@ extension ViewController: UITextViewDelegate{
                   shouldChangeTextIn range: NSRange,
                   replacementText text: String) -> Bool
     {
+        if self.isRequesting{
+            return false
+        }
         if text == "\n" && self.appParam.isConvertedWithEnterKey {
             self.addSentence(text: textView.text) { (_) in
             }

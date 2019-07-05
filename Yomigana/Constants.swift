@@ -13,6 +13,7 @@ class Constants: NSObject {
     class App: NSObject{
         static let title = "読み仮名に変換します"
         static let setting = "設定"
+        static let closeKeyboard = "キーボードを閉じる"
     }
     
     class Setting: NSObject{

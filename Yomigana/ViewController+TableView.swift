@@ -64,6 +64,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        if self.textView.isFirstResponder{
+            self.textView.resignFirstResponder()
+        }
+        
         guard
             let sentence = self.sentences[safe: indexPath.row],
             let text = sentence.converted

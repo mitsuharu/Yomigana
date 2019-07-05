@@ -139,7 +139,6 @@ extension ViewController: UITextViewDelegate{
                   replacementText text: String) -> Bool
     {
         if text == "\n" && self.appParam.isConvertedWithEnterKey {
-            textView.endEditing(true)
             self.addSentence(text: textView.text) { (_) in
             }
             return false

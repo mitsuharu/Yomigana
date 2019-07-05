@@ -12,23 +12,39 @@ import MEOKit
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
     
     func setupTableView(){
-        tableView.register(UINib(nibName: "SentenceCell", bundle: Bundle.main),
-                           forCellReuseIdentifier: "SentenceCell")
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.tableFooterView = UIView()
+        self.tableView.meo.registerCell(className: "SentenceCell")
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.tableFooterView = UIView()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int
+    {
         return self.sentences.count
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+    func tableView(_ tableView: UITableView,
+                   estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        guard let height = self.cellHeights[indexPath] else {
+            return UITableView.automaticDimension
+        }
+        return height
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+    func tableView(_ tableView: UITableView,
+                   willDisplay cell: UITableViewCell,
+                   forRowAt indexPath: IndexPath)
+    {
+        if let _ = self.cellHeights[indexPath]{
+            self.cellHeights[indexPath] = cell.frame.height
+        }
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SentenceCell",
                                                  for: indexPath)
         cell.separatorInset = UIEdgeInsets.zero
@@ -38,13 +54,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
             let sentence = self.sentences[safe: indexPath.row]
         {
             scell.sentence = sentence
-            scell.setContents()
         }
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath)
+    {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard
@@ -65,8 +82,5 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         ]
         self.present(vc, animated: true, completion: nil)
     }
-    
-
-    
 }
 

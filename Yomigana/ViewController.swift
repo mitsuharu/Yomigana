@@ -16,8 +16,11 @@ class ViewController: UIViewController {
     // パラメータ
     let appParam = AppParam()
     
-    // sentence
+    // sentence array
     var sentences: [Sentence] = [Sentence]()
+    
+    // for cell
+    var cellHeights: [IndexPath: CGFloat] = [IndexPath: CGFloat]()
     
     // ui
     @IBOutlet weak var headerView: UIView!
@@ -78,22 +81,22 @@ extension ViewController{
         }
     }
     
+    /// 読み仮名に変更して結果一覧に表示する
     func addSentence(text: String, completion:@escaping (Bool)->()){
-        let sentence = Sentence(text)
-        
         self.textView.isUserInteractionEnabled = false
         self.cnvButton.isUserInteractionEnabled = false
         SVProgressHUD.show()
         
+        let sentence = Sentence(text)
         sentence.toHiragana { (result, errorType) in
             SVProgressHUD.dismiss()
             
             if result{
                 self.sentences.insert(sentence, at: 0)
-                
+
                 let ips = [IndexPath(row: 0, section: 0)]
                 self.tableView.insertRows(at: ips, with: .automatic)
-
+                
                 self.textView.text = nil
                 self.placeholderLabel.isHidden = false
             }else if let err = errorType{
@@ -116,18 +119,18 @@ extension ViewController{
 extension ViewController: UITextViewDelegate{
     
     func setupTextView(){
-        textView.text = nil
-        textView.delegate = self
+        self.textView.text = nil
+        self.textView.delegate = self
     }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool{
-        placeholderLabel.isHidden = true
+        self.placeholderLabel.isHidden = true
         return true
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            placeholderLabel.isHidden = false
+            self.placeholderLabel.isHidden = false
         }
     }
     
@@ -135,7 +138,7 @@ extension ViewController: UITextViewDelegate{
                   shouldChangeTextIn range: NSRange,
                   replacementText text: String) -> Bool
     {
-        if text == "\n" && appParam.isConvertedWithEnterKey {
+        if text == "\n" && self.appParam.isConvertedWithEnterKey {
             textView.endEditing(true)
             self.addSentence(text: textView.text) { (_) in
             }

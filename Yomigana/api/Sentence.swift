@@ -26,10 +26,10 @@ class Sentence: NSObject {
     
     func toHiragana(completion: @escaping (Bool, ErrorType?)->() )
     {
-        guard let text = text, text.count > 0 else {
+        guard let text:String = self.text, text.count > 0 else {
             return completion(false, .validation)
         }
-        
+                
         let url = "https://labs.goo.ne.jp/api/hiragana"
         let apiKey = "6edb2b8ac6c4115f3a088f43a1103a1f08e871c70196ba80c2bd8a93fb93f0ff"
         let headers: HTTPHeaders = [

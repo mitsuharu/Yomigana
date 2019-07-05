@@ -16,7 +16,7 @@
 		9B18FD0E22CE0827001CA9A0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B18FD0922CE0826001CA9A0 /* SettingViewController.swift */; };
 		9B18FD0F22CE0827001CA9A0 /* AppParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B18FD0A22CE0826001CA9A0 /* AppParam.swift */; };
 		9B18FD1022CE0827001CA9A0 /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B18FD0B22CE0826001CA9A0 /* SettingViewController.storyboard */; };
-		9B18FD1122CE0827001CA9A0 /* Licenses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B18FD0C22CE0826001CA9A0 /* Licenses.plist */; };
+		9B18FD1122CE0827001CA9A0 /* licenses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B18FD0C22CE0826001CA9A0 /* licenses.plist */; };
 		9B18FD1222CE0827001CA9A0 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B18FD0D22CE0826001CA9A0 /* LicenseViewController.swift */; };
 		9B273C4722CC8E2B00A024FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B273C4622CC8E2B00A024FA /* AppDelegate.swift */; };
 		9B273C4922CC8E2B00A024FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B273C4822CC8E2B00A024FA /* ViewController.swift */; };
@@ -58,7 +58,7 @@
 		9B18FD0922CE0826001CA9A0 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9B18FD0A22CE0826001CA9A0 /* AppParam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppParam.swift; sourceTree = "<group>"; };
 		9B18FD0B22CE0826001CA9A0 /* SettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
-		9B18FD0C22CE0826001CA9A0 /* Licenses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Licenses.plist; sourceTree = "<group>"; };
+		9B18FD0C22CE0826001CA9A0 /* licenses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = licenses.plist; sourceTree = "<group>"; };
 		9B18FD0D22CE0826001CA9A0 /* LicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		9B18FD1322CE09C2001CA9A0 /* ja-JP */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ja-JP"; path = "ja-JP.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		9B18FD1422CE09C2001CA9A0 /* ja-JP */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ja-JP"; path = "ja-JP.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 				9B18FD0922CE0826001CA9A0 /* SettingViewController.swift */,
 				9B18FD0A22CE0826001CA9A0 /* AppParam.swift */,
 				9B18FD0B22CE0826001CA9A0 /* SettingViewController.storyboard */,
-				9B18FD0C22CE0826001CA9A0 /* Licenses.plist */,
+				9B18FD0C22CE0826001CA9A0 /* licenses.plist */,
 				9B18FD0D22CE0826001CA9A0 /* LicenseViewController.swift */,
 			);
 			path = setting;
@@ -316,7 +316,7 @@
 			files = (
 				9B273C5122CC8E2C00A024FA /* LaunchScreen.storyboard in Resources */,
 				9B273C4E22CC8E2C00A024FA /* Assets.xcassets in Resources */,
-				9B18FD1122CE0827001CA9A0 /* Licenses.plist in Resources */,
+				9B18FD1122CE0827001CA9A0 /* licenses.plist in Resources */,
 				9B18FD1022CE0827001CA9A0 /* SettingViewController.storyboard in Resources */,
 				9B18FD0322CCD515001CA9A0 /* SentenceCell.xib in Resources */,
 				9B273C4C22CC8E2B00A024FA /* Main.storyboard in Resources */,

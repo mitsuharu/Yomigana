@@ -23,7 +23,7 @@ $ carthage bootstrap
 もしくは
 
 ```
-$ carthage update --platform ios --no-use-binaries
+$ carthage update --platform ios
 ```
 
 

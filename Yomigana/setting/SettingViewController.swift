@@ -24,12 +24,24 @@ class SettingViewController: UIViewController {
         
         self.title = Constants.App.setting
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
-        let plistPath = Bundle.main.path(forResource: "Licenses", ofType:"plist")
-        licenses = NSArray(contentsOfFile: plistPath!)! as! [[String : String]]
-        licenses.sort { (temp0, temp1) -> Bool in
+        self.loadLicensesPlist()
+    }
+}
+
+extension SettingViewController{
+    
+    func loadLicensesPlist(){
+        guard
+            let path = Bundle.main.path(forResource: "licenses", ofType:"plist"),
+            let arr = NSArray(contentsOfFile: path)
+            else {
+            return
+        }
+        self.licenses = arr as! [[String : String]]
+        self.licenses.sort { (temp0, temp1) -> Bool in
             guard
                 let title0: String = temp0["title"],
                 let title1: String = temp1["title"]
@@ -38,14 +50,10 @@ class SettingViewController: UIViewController {
             }
             return title0 < title1
         }
-       
     }
-}
-
-extension SettingViewController{
     
     @IBAction func didTapGooButton(sender: UIButton){
-        if let url = URL(string: "http://www.goo.ne.jp/") {
+        if let url = URL(string: Constants.Setting.gooUrl) {
             let vc = SFSafariViewController(url: url)
             self.present(vc, animated: true, completion: nil)
         }
@@ -106,10 +114,13 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == 0{
-            
+            // 何もしない
         }else{
-            if let license = licenses[safe: indexPath.row]{
-                let vc: LicenseViewController = self.storyboard?.instantiateViewController(withIdentifier: "LicenseViewController") as! LicenseViewController
+            if
+                let license = licenses[safe: indexPath.row],
+                let sb = self.storyboard
+            {
+                let vc: LicenseViewController = sb.instantiateViewController(withIdentifier: "LicenseViewController") as! LicenseViewController
                 vc.name = license["title"]
                 vc.body = license["text"]
                 self.navigationController?.pushViewController(vc, animated: true)

@@ -71,6 +71,8 @@ extension ViewController{
     }
     
     @objc func pushSetting(_ sender: UIBarButtonItem) {
+        self.closeKeyboard()
+        
         let vc = SettingViewController.instantiate()
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -140,12 +142,12 @@ extension ViewController: UITextViewDelegate{
         let closeBtn = UIBarButtonItem(title: Constants.App.closeKeyboard,
                                        style: UIBarButtonItem.Style.plain,
                                        target: self,
-                                       action: #selector(closeKeyboard(_ :)) )
+                                       action: #selector(closeKeyboard) )
         toolBar.items = [spacer, closeBtn]
         self.textView.inputAccessoryView = toolBar
     }
     
-    @objc func closeKeyboard(_ sender: AnyObject) {
+    @objc func closeKeyboard() {
         if self.textView.isFirstResponder{
             self.textView.resignFirstResponder()
         }

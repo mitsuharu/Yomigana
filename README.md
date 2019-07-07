@@ -20,7 +20,7 @@ Carthage
 - ライブラリのソースやバイナリーはgitに含めてないので，事前にライブラリのダウンロードが必要．
 
 ```
-$ carthage bootstrap
+$ carthage bootstrap --platform ios
 ```
 
 もしくは

@@ -10,8 +10,26 @@ import UIKit
 
 class Constants: NSObject {
     
-    class Api: NSObject{
-        static let apiKey = "6edb2b8ac6c4115f3a088f43a1103a1f08e871c70196ba80c2bd8a93fb93f0ff"
+    class App: NSObject{
+        static let title = "読み仮名に変換します"
+        static let setting = "設定"
+        static let closeKeyboard = "キーボードを閉じる"
+    }
+    
+    class Setting: NSObject{
+        static let function = "機能"
+        static let license = "ライセンス"
+        static let convertedWithEnterKey = "エンターキーでも変換する"
+        static let gooUrl = "http://www.goo.ne.jp/"
+    }
+    
+    class Alert: NSObject{
+        static let title = "エラー"
+        static let ok = "OK"
+        static let validation = "入力文が空です"
+        static let failed = "読み仮名の取得に失敗しました"
+        static let network = "ネットワークに接続できません"
+        static let timeout = "タイムアウトしました"
     }
 
 }

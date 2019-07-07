@@ -12,6 +12,7 @@ import MEOKit
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
     
     func setupTableView(){
+        self.tableView.keyboardDismissMode = .onDrag
         self.tableView.meo.registerCell(className: "SentenceCell")
         self.tableView.dataSource = self
         self.tableView.delegate = self

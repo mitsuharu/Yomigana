@@ -37,6 +37,11 @@ class ViewController: UIViewController {
         self.setupTextView()
         self.setupTableView()
     }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        self.closeKeyboard()
+    }
 }
 
 extension ViewController{
@@ -109,8 +114,8 @@ extension ViewController{
                 }else{
                     self.placeholderLabel.isHidden = false
                 }
-                
             }else if let err = errorType{
+                self.closeKeyboard()
                 let av = UIAlertController(title: Constants.Alert.title,
                                            message: err.description,
                                            preferredStyle: UIAlertController.Style.alert)
@@ -119,37 +124,24 @@ extension ViewController{
                                            handler: nil))
                 self.present(av, animated: true, completion: nil)
             }
-            
             self.isRequesting = false
             completion(result)
         }
     }
 }
 
+// MARK: テキストビューに関して
+
 extension ViewController: UITextViewDelegate{
     
     func setupTextView(){
         self.textView.text = nil
         self.textView.delegate = self
-        
-        let rect = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
-        let toolBar = UIToolbar(frame: rect)
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.sizeToFit()
-        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                     target: nil,
-                                     action: nil)
-        let closeBtn = UIBarButtonItem(title: Constants.App.closeKeyboard,
-                                       style: UIBarButtonItem.Style.plain,
-                                       target: self,
-                                       action: #selector(closeKeyboard) )
-        toolBar.items = [spacer, closeBtn]
-        self.textView.inputAccessoryView = toolBar
     }
     
     @objc func closeKeyboard() {
         if self.textView.isFirstResponder{
-            self.textView.resignFirstResponder()
+            self.textView.endEditing(true)
         }
     }
     
